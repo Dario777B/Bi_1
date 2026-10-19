@@ -8,7 +8,7 @@
   --blue-dark: #243fb4;
   --lime: #d6f36a;
   --coral: #ff795d;
-  --font-body: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
   --font-mono: "DM Mono", monospace;
 }
 
@@ -23,6 +23,7 @@ a { color: inherit; }
 .navbar-nav .nav-link { padding: 10px 0; color: #55615c; font-size: 12px; font-weight: 700; transition: color .2s ease; }
 .navbar-nav .nav-link:hover { color: var(--blue); }
 .navbar-nav .nav-dashboard { color: var(--blue); }
+.navbar-nav .nav-game { color: #296b48; }
 .navbar-toggler { border: 0; box-shadow: none !important; }
 .hero-section { position: relative; overflow: hidden; padding: 86px 0 0; background-color: #e9ede5; background-image: radial-gradient(rgba(24, 34, 31, .075) .7px, transparent .7px); background-size: 16px 16px; }
 .hero-grid { display: grid; grid-template-columns: 1.06fr .94fr; align-items: center; gap: 7%; min-height: 486px; padding-bottom: 54px; }
@@ -201,8 +202,12 @@ a { color: inherit; }
 .result-stats span { color: #8f9c93; font-family: var(--font-mono); font-size: 8px; }
 .site-footer { padding: 20px 0; background: #e9ede5; }
 .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-.footer-content > span, .footer-content > a:last-child { color: #748078; font-size: 9px; text-decoration: none; }
-.footer-content > a:last-child:hover { color: var(--blue); }
+.footer-content > span, .footer-content > a:not(.brand-mark) { color: #748078; font-size: 9px; text-decoration: none; }
+.footer-content > a:not(.brand-mark):hover { color: var(--blue); }
+html[data-theme="dark"] .navbar-nav .nav-game { color: #9bd4a9; }
+@media (max-width: 767.98px) {
+  .hero-meta { align-items: flex-start; font-size: 8px; line-height: 1.6; }
+}
 .theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 2px; background: transparent; color: var(--ink); font-family: var(--font-body); font-size: 10px; font-weight: 700; transition: background .2s ease, border-color .2s ease; }
 .theme-toggle:hover { border-color: var(--blue); background: rgba(54, 89, 227, .08); }
 .theme-toggle-icon { color: var(--blue); font-size: 16px; line-height: 1; }

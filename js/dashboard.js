@@ -16,7 +16,7 @@
   const filter = document.getElementById("teamFilter");
   const tableBody = document.getElementById("standingsBody");
   const legend = document.getElementById("resultsLegend");
-  const chartFont = { family: "Manrope, sans-serif", size: 9 };
+  const chartFont = { family: "Inter, sans-serif", size: 9 };
 
   teams.forEach((team) => {
     const option = document.createElement("option");
@@ -29,7 +29,7 @@
     legend: { display: false },
     tooltip: {
       backgroundColor: "#19251f",
-      titleFont: { family: "Manrope, sans-serif", size: 11, weight: "700" },
+      titleFont: { family: "Inter, sans-serif", size: 11, weight: "700" },
       bodyFont: chartFont,
       padding: 10,
       displayColors: true,
@@ -40,7 +40,7 @@
   const goalsChart = new Chart(document.getElementById("goalsChart"), {
     type: "bar",
     data: { labels: teams.map((team) => team.short), datasets: [{ label: "Goles a favor", data: teams.map((team) => team.goalsFor), backgroundColor: teams.map(() => colors.green), hoverBackgroundColor: colors.lime, borderRadius: 1, maxBarThickness: 30 }] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { ...commonPlugins, tooltip: { ...commonPlugins.tooltip, callbacks: { title: (items) => teams[items[0].dataIndex].name, label: (item) => ` ${item.raw} goles` } } }, scales: { x: { grid: { display: false }, border: { display: false }, ticks: { color: colors.muted, font: chartFont } }, y: { beginAtZero: true, suggestedMax: 20, grid: { color: colors.grid }, border: { display: false, dash: [3, 3] }, ticks: { stepSize: 5, color: colors.muted, font: chartFont, padding: 8 } } } }
+    options: { responsive: true, maintainAspectRatio: false, plugins: { ...commonPlugins, tooltip: { ...commonPlugins.tooltip, callbacks: { title: (items) => teams.find((team) => team.short === items[0].label)?.name || items[0].label, label: (item) => ` ${item.raw} goles` } } }, scales: { x: { grid: { display: false }, border: { display: false }, ticks: { color: colors.muted, font: chartFont } }, y: { beginAtZero: true, suggestedMax: 20, grid: { color: colors.grid }, border: { display: false, dash: [3, 3] }, ticks: { stepSize: 5, color: colors.muted, font: chartFont, padding: 8 } } } }
   });
 
   const resultsChart = new Chart(document.getElementById("resultsChart"), {
@@ -58,13 +58,13 @@
   const cardsChart = new Chart(document.getElementById("cardsChart"), {
     type: "bar",
     data: { labels: teams.map((team) => team.short), datasets: [{ label: "Tarjetas amarillas", data: teams.map((team) => team.cards), backgroundColor: teams.map(() => "#d3a54d"), hoverBackgroundColor: colors.coral, borderRadius: 1, maxBarThickness: 14 }] },
-    options: { indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: { ...commonPlugins, tooltip: { ...commonPlugins.tooltip, callbacks: { title: (items) => teams[items[0].dataIndex].name, label: (item) => ` ${item.raw} tarjetas amarillas` } } }, scales: { x: { beginAtZero: true, suggestedMax: 30, grid: { color: colors.grid }, border: { display: false }, ticks: { stepSize: 10, color: colors.muted, font: chartFont } }, y: { grid: { display: false }, border: { display: false }, ticks: { color: colors.muted, font: chartFont } } } }
+    options: { indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: { ...commonPlugins, tooltip: { ...commonPlugins.tooltip, callbacks: { title: (items) => teams.find((team) => team.short === items[0].label)?.name || items[0].label, label: (item) => ` ${item.raw} tarjetas amarillas` } } }, scales: { x: { beginAtZero: true, suggestedMax: 30, grid: { color: colors.grid }, border: { display: false }, ticks: { stepSize: 10, color: colors.muted, font: chartFont } }, y: { grid: { display: false }, border: { display: false }, ticks: { color: colors.muted, font: chartFont } } } }
   });
 
   const radarChart = new Chart(document.getElementById("radarChart"), {
     type: "radar",
     data: { labels: ["Ataque", "Puntos", "Defensa", "Disciplina", "Victorias"], datasets: [] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { ...commonPlugins, tooltip: { ...commonPlugins.tooltip, callbacks: { label: (item) => ` ${item.dataset.label}: ${item.raw}` } } }, scales: { r: { beginAtZero: true, max: 10, ticks: { display: false, stepSize: 2 }, grid: { color: colors.grid }, angleLines: { color: colors.grid }, pointLabels: { color: colors.muted, font: { family: "Manrope, sans-serif", size: 8 } } } } }
+    options: { responsive: true, maintainAspectRatio: false, plugins: { ...commonPlugins, tooltip: { ...commonPlugins.tooltip, callbacks: { label: (item) => ` ${item.dataset.label}: ${item.raw}` } } }, scales: { r: { beginAtZero: true, max: 10, ticks: { display: false, stepSize: 2 }, grid: { color: colors.grid }, angleLines: { color: colors.grid }, pointLabels: { color: colors.muted, font: { family: "Inter, sans-serif", size: 8 } } } } }
   });
 
   function renderTable() {
@@ -100,7 +100,6 @@
     const goals = selected ? selected.goalsFor : totalGoals;
     const matches = selected ? selected.played : totalMatches;
     const resultCounts = selected ? [selected.wins, selected.draws, selected.losses] : [28, 24, 28];
-    const highlightedIndex = selected ? teams.indexOf(selected) : 0;
     const trendTeam = selected || teams[0];
     const comparisonTeam = selected ? (selected === teams[0] ? teams[1] : teams[0]) : teams[1];
 
@@ -114,7 +113,10 @@
     document.getElementById("matchesKpiFoot").textContent = selected ? "PARTIDOS DISPUTADOS" : "10 FECHAS / 8 EQUIPOS";
     document.getElementById("goalsAverage").textContent = (goals / matches).toFixed(2);
 
-    goalsChart.data.datasets[0].backgroundColor = teams.map((_, index) => index === highlightedIndex ? colors.lime : colors.green);
+    const chartTeams = selected ? [selected] : teams;
+    goalsChart.data.labels = chartTeams.map((team) => team.short);
+    goalsChart.data.datasets[0].data = chartTeams.map((team) => team.goalsFor);
+    goalsChart.data.datasets[0].backgroundColor = chartTeams.map((team) => team === selected ? colors.lime : colors.green);
     goalsChart.update();
     resultsChart.data.datasets[0].data = resultCounts;
     resultsChart.update();
@@ -125,7 +127,9 @@
     pointsChart.data.datasets[0].borderColor = selected ? colors.blue : colors.green;
     pointsChart.update();
     document.getElementById("pointsTeamLabel").textContent = trendTeam.name.toLocaleUpperCase("es");
-    cardsChart.data.datasets[0].backgroundColor = teams.map((_, index) => index === highlightedIndex ? colors.coral : "#d3a54d");
+    cardsChart.data.labels = chartTeams.map((team) => team.short);
+    cardsChart.data.datasets[0].data = chartTeams.map((team) => team.cards);
+    cardsChart.data.datasets[0].backgroundColor = chartTeams.map((team) => team === selected ? colors.coral : "#d3a54d");
     cardsChart.update();
     radarChart.data.datasets = [
       { label: trendTeam.name, data: radarValues(trendTeam), borderColor: colors.green, backgroundColor: "rgba(41,107,72,.16)", pointBackgroundColor: colors.green, borderWidth: 2 },

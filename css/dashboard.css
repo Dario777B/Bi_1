@@ -9,7 +9,7 @@
   --dash-lime: #d7ee75;
   --dash-blue: #6a94d4;
   --dash-coral: #e88369;
-  --dash-font: "Manrope", sans-serif;
+  --dash-font: "Inter", sans-serif;
   --dash-mono: "DM Mono", monospace;
 }
 
@@ -23,9 +23,9 @@ body { margin: 0; background: var(--dash-paper); color: var(--dash-ink); font-fa
 .dashboard-brand:hover { color: white; }
 .brand-badge { display: grid; width: 34px; height: 34px; place-items: center; background: var(--dash-lime); color: var(--dash-green-dark); font-size: 11px; font-weight: 800; }
 .dashboard-brand small { display: block; margin-top: 3px; color: #adc4b3; font-family: var(--dash-mono); font-size: 7px; font-weight: 400; }
-.back-link { color: #c2d5c7; font-size: 10px; text-decoration: none; }
-.back-link:hover { color: var(--dash-lime); }
-.back-link span { margin-right: 5px; }
+.dashboard-page-nav { display: flex; align-items: center; gap: clamp(10px, 2vw, 24px); margin-left: auto; }
+.dashboard-page-nav a { color: #c2d5c7; font-size: 10px; text-decoration: none; transition: color .2s ease; }
+.dashboard-page-nav a:hover, .dashboard-page-nav a[aria-current="page"] { color: var(--dash-lime); }
 .dashboard-title-row { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 34px 0 27px; }
 .dash-eyebrow, .filter-control label { margin: 0 0 12px; color: #bad0bf; font-family: var(--dash-mono); font-size: 8px; }
 .live-dot { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--dash-lime); box-shadow: 0 0 10px rgba(215,238,117,.5); }
@@ -99,7 +99,7 @@ body { margin: 0; background: var(--dash-paper); color: var(--dash-ink); font-fa
 .theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 34px; padding: 0 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 2px; background: rgba(255,255,255,.06); color: white; font-family: var(--dash-font); font-size: 10px; font-weight: 700; transition: background .2s ease, border-color .2s ease; }
 .theme-toggle:hover { border-color: var(--dash-lime); background: rgba(255,255,255,.12); }
 .theme-toggle-icon { color: var(--dash-lime); font-size: 16px; line-height: 1; }
-.dashboard-navline .theme-toggle { margin-left: auto; }
+.dashboard-navline .theme-toggle { margin-left: 0; }
 html[data-theme="dark"] { color-scheme: dark; --dash-paper: #171d19; --dash-white: #222a24; --dash-ink: #edf2ec; --dash-muted: #a8b4ab; --dash-line: #3b473f; --dash-green: #79bd8e; --dash-green-dark: #183b2a; --dash-blue: #8eb5f1; --dash-coral: #f09278; }
 html[data-theme="dark"] body { background: var(--dash-paper); color: var(--dash-ink); }
 html[data-theme="dark"] .dashboard-header { background: #142f22; }
@@ -145,6 +145,8 @@ html[data-theme="dark"] .dashboard-navline .theme-toggle:hover { color: white; }
   .dashboard-footer span:last-child { width: 100%; }
   .dashboard-navline { gap: 10px; }
   .dashboard-navline .theme-toggle { margin-left: 0; }
+  .dashboard-page-nav { order: 3; width: 100%; justify-content: space-between; margin: 2px 0 0; }
+  .dashboard-page-nav a { font-size: 9px; }
 }
 @media (max-width: 420px) {
   .dashboard-shell { padding-right: 12px; padding-left: 12px; }

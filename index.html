@@ -9,7 +9,7 @@
 	<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
@@ -20,11 +20,13 @@
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="mainNavigation">
 				<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+					<li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
 					<li class="nav-item"><a class="nav-link" href="#decisiones">Decisiones</a></li>
 					<li class="nav-item"><a class="nav-link" href="#etl">Proceso ETL</a></li>
 					<li class="nav-item"><a class="nav-link" href="#casos">Casos reales</a></li>
 					<li class="nav-item"><a class="nav-link" href="#quiz">Cuestionario</a></li>
-					<li class="nav-item"><a class="nav-link nav-dashboard" href="dashboard.html">Explorar dashboard <span aria-hidden="true">↗</span></a></li>
+					<li class="nav-item"><a class="nav-link nav-dashboard" href="dashboard.html">Dashboard Liga Pro 2026</a></li>
+					<li class="nav-item"><a class="nav-link nav-game" href="juego.html">Aventura BI</a></li>
 					<li class="nav-item"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a tema oscuro" title="Cambiar a tema oscuro"><span class="theme-toggle-icon" aria-hidden="true">☾</span><span data-theme-label>Oscuro</span></button></li>
 				</ul>
 			</div>
@@ -36,13 +38,13 @@
 			<div class="container hero-grid">
 				<div class="hero-copy">
 					<p class="eyebrow"><span class="eyebrow-dot"></span> DATOS QUE MUEVEN NEGOCIOS</p>
-					<h1>De datos<br>sueltos a <span>decisiones<br>con sentido.</span></h1>
+					<h1>Fundamentos<br>de <span>Inteligencia<br>de Negocios.</span></h1>
 					<p class="hero-lede">Los fundamentos de Business Intelligence, explicados para entender cómo una buena pregunta se convierte en una mejor decisión.</p>
 					<div class="hero-actions">
 						<a class="btn btn-ink" href="#quiz">Poner a prueba lo aprendido <span aria-hidden="true">→</span></a>
 						<a class="text-link" href="#decisiones">Comenzar a explorar <span aria-hidden="true">↓</span></a>
 					</div>
-					<div class="hero-meta"><span class="meta-rule"></span> UNA GUÍA INTERACTIVA <span>·</span> 8 MIN DE LECTURA</div>
+					<div class="hero-meta"><span class="meta-rule"></span> SISTEMAS DE INFORMACIÓN PARA LA INTELIGENCIA DE NEGOCIOS <span>·</span> UNIDAD 1</div>
 				</div>
 				<div class="hero-visual" aria-label="Ilustración de un flujo de datos que se transforma en una decisión">
 					<div class="visual-topline"><span>DEL REGISTRO A LA ACCIÓN</span><span>01 / 03</span></div>
@@ -56,6 +58,10 @@
 					<span class="visual-index">FIG. 01 — INTELIGENCIA EN ACCIÓN</span>
 				</div>
 			</div>
+			<div class="container d-flex flex-wrap gap-3 pb-4">
+				<a class="text-link" href="dashboard.html">Explorar Dashboard Liga Pro 2026 <span aria-hidden="true">↗</span></a>
+				<a class="text-link" href="juego.html">Aprender jugando en Aventura BI <span aria-hidden="true">↗</span></a>
+			</div>
 			<div class="hero-bottom container"><span>UNA PREGUNTA MEJOR</span><span class="hero-bottom-line"></span><span>UN NEGOCIO MÁS CLARO</span></div>
 		</section>
 
@@ -63,7 +69,7 @@
 			<div class="container">
 				<div class="section-heading section-heading-split">
 					<div><p class="eyebrow">01 — PENSAR CON EVIDENCIA</p><h2>Decidir bien empieza<br>por <em>mirar mejor.</em></h2></div>
-					<p class="section-intro">Business Intelligence convierte datos dispersos en información útil para actuar. No decide por las personas: les ayuda a ver el contexto, detectar patrones y evaluar opciones.</p>
+					<p class="section-intro">Los sistemas de información integran personas, procesos y tecnología para convertir datos dispersos en información útil, generar ventaja corporativa y apoyar decisiones. BI no decide por las personas: les ayuda a ver contexto, detectar patrones y evaluar opciones.</p>
 				</div>
 				<div class="decision-definition"><span class="definition-mark">“</span><p>Una decisión basada en datos combina <strong>evidencia confiable, contexto del negocio y criterio humano</strong> para elegir el siguiente paso.</p><span class="definition-caption">DATA-DRIVEN DECISION MAKING</span></div>
 				<div class="decision-levels">
@@ -119,7 +125,7 @@
 
 		<section class="quiz-section" id="quiz">
 			<div class="container quiz-layout">
-				<div class="quiz-intro"><p class="eyebrow">04 — TU TURNO</p><h2>¿Cuánto<br>se te quedó?</h2><p>Diez preguntas, una racha que cuidar y una insignia al final. Vamos paso a paso.</p><div class="quiz-score-key"><span>10</span> PUNTOS POR ACIERTO <span class="key-plus">+</span> BONUS POR RACHA</div><a class="quiz-dashboard-link" href="dashboard.html">¿Prefieres datos en juego real? <strong>Abre el dashboard ↗</strong></a></div>
+				<div class="quiz-intro"><p class="eyebrow">04 — TU TURNO</p><h2>¿Cuánto<br>se te quedó?</h2><p>Diez preguntas, una racha que cuidar y una insignia al final. Vamos paso a paso.</p><div class="quiz-score-key"><span>10</span> PUNTOS POR ACIERTO <span class="key-plus">+</span> BONUS POR RACHA</div><a class="quiz-dashboard-link" href="dashboard.html">¿Prefieres datos en juego real? <strong>Abre el dashboard ↗</strong></a><a class="quiz-dashboard-link" href="juego.html">¿Listo para una aventura? <strong>Conoce al robot dragón ↗</strong></a></div>
 				<div class="quiz-panel" id="quizPanel" aria-live="polite">
 					<div class="quiz-start" id="quizStart"><div class="quiz-card-label"><span class="quiz-live-dot"></span> RETO BI / 10 PREGUNTAS</div><div class="quiz-start-art" aria-hidden="true"><span class="art-ring ring-one"></span><span class="art-ring ring-two"></span><span class="art-core">BI</span><span class="art-orbit orbit-one">01</span><span class="art-orbit orbit-two">10</span></div><h3>Una buena decisión empieza con una buena pregunta.</h3><p>Prepárate para poner a prueba conceptos de decisiones, ETL e inteligencia de negocios.</p><button class="btn btn-quiz" id="startQuiz" type="button">Empezar el reto <span aria-hidden="true">→</span></button></div>
 					<div class="quiz-play" id="quizPlay" hidden>
@@ -134,7 +140,7 @@
 		</section>
 	</main>
 
-	<footer class="site-footer"><div class="container footer-content"><a class="brand-mark" href="#inicio"><span class="brand-symbol" aria-hidden="true">B.</span> BI en claro</a><span>Una introducción práctica a la inteligencia de negocios.</span><a href="dashboard.html">Ver Liga Pro 2026 ↗</a></div></footer>
+	<footer class="site-footer"><div class="container footer-content"><a class="brand-mark" href="index.html"><span class="brand-symbol" aria-hidden="true">B.</span> BI en claro</a><span>Una introducción práctica a la inteligencia de negocios.</span><a href="dashboard.html">Ver Liga Pro 2026 ↗</a><a href="juego.html">Jugar Aventura BI ↗</a></div></footer>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/quiz.js" defer></script>
 	<script src="js/theme.js" defer></script>

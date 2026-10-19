@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9f6f3">
+  <meta name="description" content="Acompaña al robot dragón en cuatro salas mágicas y aprende fundamentos de Inteligencia de Negocios.">
+  <title>Aventura BI | El castillo de datos</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/juego.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg adventure-nav" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand adventure-brand" href="index.html"><span class="adventure-brand-mark" aria-hidden="true">BI</span>Aventura BI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adventureNavigation" aria-controls="adventureNavigation" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="adventureNavigation">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard Liga Pro 2026</a></li>
+          <li class="nav-item"><a class="nav-link active" href="juego.html" aria-current="page">Aventura BI</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="adventure-main">
+    <section class="adventure-heading container">
+      <p class="adventure-kicker"><span></span> MISIÓN DE APRENDIZAJE / UNIDAD 1</p>
+      <h1>El castillo <em>de datos</em></h1>
+      <p>Ayuda a Briz, el robot dragón, a recorrer cuatro salas y descubrir el poder de la Inteligencia de Negocios.</p>
+    </section>
+
+    <section class="game-shell container" aria-label="Aventura interactiva de Inteligencia de Negocios">
+      <div class="game-topbar">
+        <div class="room-status"><span class="status-gem" aria-hidden="true">✦</span><span id="roomLabel">SALA 1 DE 4</span></div>
+        <div class="xp-status"><span>EXPERIENCIA</span><strong><span id="xpValue">0</span> XP</strong></div>
+      </div>
+      <div class="game-progress" role="progressbar" aria-label="Progreso de la aventura" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0">
+        <div id="gameProgressBar"></div>
+      </div>
+      <div class="room-track" aria-label="Salas de la aventura">
+        <span class="room-marker is-current" data-room-marker="0">01 <small>Sistemas</small></span>
+        <span class="room-marker" data-room-marker="1">02 <small>Decisiones</small></span>
+        <span class="room-marker" data-room-marker="2">03 <small>ETL</small></span>
+        <span class="room-marker" data-room-marker="3">04 <small>Herramientas</small></span>
+      </div>
+
+      <div class="game-room" id="gameRoom">
+        <div class="dragon-side">
+          <div class="room-orbit orbit-a" aria-hidden="true"></div>
+          <div class="room-orbit orbit-b" aria-hidden="true"></div>
+          <div class="dragon-scene" id="dragonScene" data-mood="happy">
+            <div class="dragon-shadow"></div>
+            <svg class="dragon-svg" viewBox="0 0 260 250" role="img" aria-labelledby="dragonTitle dragonDescription">
+              <title id="dragonTitle">Briz, el robot dragón</title>
+              <desc id="dragonDescription">Pequeño dragón robot verde con panza blanca, ojos y alas azules.</desc>
+              <path class="dragon-tail" d="M180 174c38 11 40 42 19 46-12 3-17-8-9-14" fill="none" stroke="#38a878" stroke-width="16" stroke-linecap="round"/>
+              <path class="dragon-wing" d="M67 125 23 83l9 54-18 23 51-6zm127 0 44-42-9 54 18 23-51-6z" fill="#4d9be8" stroke="#2473be" stroke-width="5" stroke-linejoin="round"/>
+              <path d="m93 52-17-30 39 15m52 15 17-30-39 15" fill="#f7fff9" stroke="#20965f" stroke-width="7" stroke-linejoin="round"/>
+              <path class="dragon-body" d="M62 106c0-42 28-68 68-68s68 26 68 68v67c0 24-19 43-43 43h-50c-24 0-43-19-43-43z" fill="#38a878" stroke="#16784d" stroke-width="7"/>
+              <path d="M95 143c0-16 15-28 35-28s35 12 35 28v48c0 12-10 21-22 21h-26c-12 0-22-9-22-21z" fill="#f7fff9" stroke="#d8eee1" stroke-width="4"/>
+              <path d="M63 94c0-27 23-48 51-48h32c28 0 51 21 51 48v28c0 27-22 48-49 48h-36c-27 0-49-21-49-48z" fill="#42b981" stroke="#16784d" stroke-width="7"/>
+              <rect x="81" y="88" width="98" height="42" rx="17" fill="#f6fff9" stroke="#d1eddd" stroke-width="4"/>
+              <g class="dragon-eyes">
+                <ellipse cx="108" cy="108" rx="8" ry="12" fill="#287ed0"/>
+                <ellipse cx="152" cy="108" rx="8" ry="12" fill="#287ed0"/>
+                <circle cx="110" cy="104" r="2.5" fill="white"/>
+                <circle cx="154" cy="104" r="2.5" fill="white"/>
+              </g>
+              <path class="dragon-smile" d="M119 120q11 10 22 0" fill="none" stroke="#16784d" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="89" cy="122" r="5" fill="#bcebd0"/>
+              <circle cx="171" cy="122" r="5" fill="#bcebd0"/>
+              <path d="M109 177h42m-36 15h30" stroke="#b6e6cc" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="130" cy="160" r="6" fill="#4d9be8"/>
+              <path d="M95 217v13m70-13v13" stroke="#16784d" stroke-width="9" stroke-linecap="round"/>
+              <path d="M82 232h27m44 0h27" stroke="#f7fff9" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <div class="blue-flame" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="dragon-spark spark-one" aria-hidden="true">✦</span>
+            <span class="dragon-spark spark-two" aria-hidden="true">✧</span>
+          </div>
+          <div class="dragon-name">BRIZ <span>· GUÍA DE LA MAZMORRA</span></div>
+        </div>
+
+        <div class="dialogue-side">
+          <div class="dialogue-card">
+            <div class="dialogue-topline"><span class="dialogue-icon" aria-hidden="true">✦</span><span id="roomTopic">SALA DE SISTEMAS</span></div>
+            <p class="dragon-greeting" id="dragonGreeting">¡Hola, explorador!</p>
+            <h2 id="roomQuestion">Cargando la primera misión...</h2>
+            <p class="answer-hint" id="answerHint" hidden></p>
+            <div class="choice-list" id="choiceList" aria-label="Opciones de respuesta"></div>
+            <p class="game-feedback" id="gameFeedback" role="status" aria-live="polite" hidden></p>
+            <button class="continue-button" id="continueButton" type="button" hidden>Entrar a la siguiente sala <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <section class="victory-screen" id="victoryScreen" aria-live="polite" hidden>
+        <div class="victory-art" aria-hidden="true">✦</div>
+        <p class="adventure-kicker">MISIÓN COMPLETADA</p>
+        <h2>¡El castillo es tuyo!</h2>
+        <p class="victory-copy">Briz está orgulloso de ti. Has reunido <strong><span id="finalXp">100</span> XP</strong> y aprendido cuatro ideas clave:</p>
+        <ul class="learning-recap">
+          <li><strong>Sistemas de información</strong><span>Conectan personas, procesos y tecnología para crear valor.</span></li>
+          <li><strong>Decisiones basadas en datos</strong><span>La evidencia orienta la acción junto con el contexto y el criterio humano.</span></li>
+          <li><strong>Transformación ETL</strong><span>Limpiar y validar convierte los datos en información útil.</span></li>
+          <li><strong>Herramientas BI</strong><span>Power BI permite explorar datos y comunicar hallazgos con dashboards.</span></li>
+        </ul>
+        <a class="return-link" href="index.html">Repasar los fundamentos <span aria-hidden="true">↗</span></a>
+        <button class="restart-button" id="restartGame" type="button">Jugar otra vez ↻</button>
+      </section>
+      <footer class="game-footer"><span>CASTILLO DE DATOS <i>·</i> AVENTURA BI</span><a href="index.html">Volver a Fundamentos BI</a></footer>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/juego.js" defer></script>
+</body>
+</html>
