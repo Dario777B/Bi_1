@@ -1,189 +1,149 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b2f5b">
-  <meta name="description" content="Presentación interactiva del sílabo de Sistemas de Información para la Inteligencia de Negocios de la Universidad Técnica de Cotopaxi.">
-  <title>Sílabo BI | Universidad Técnica de Cotopaxi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f4f5ef">
+	<meta name="description" content="Aprende los fundamentos de Business Intelligence: decisiones basadas en datos, procesos ETL y visualización interactiva.">
+	<title>BI en claro | Fundamentos de Business Intelligence</title>
+	<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <main class="presentation" id="presentation" aria-label="Presentación del sílabo de la asignatura">
-    <header class="deck-header">
-      <a class="utc-brand" href="#slide-1" aria-label="Universidad Técnica de Cotopaxi, ir a portada">
-        <span class="utc-seal" aria-hidden="true">
-          <svg viewBox="0 0 44 44" role="img">
-            <circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M11 15h22M11 29h22M16 15v14m6-14v14m6-14v14" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="22" cy="22" r="2.5" fill="currentColor"/>
-          </svg>
-        </span>
-        <span><strong>UTC</strong><small>UNIVERSIDAD TÉCNICA<br>DE COTOPAXI</small></span>
-      </a>
-      <div class="header-course"><span class="header-dot"></span> SÍLABO / PAO 2026—2027</div>
-      <a class="header-index" href="#slide-2" aria-label="Ir a datos generales">FICHA DE ASIGNATURA <span>↗</span></a>
-    </header>
+	<nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Navegación principal">
+		<div class="container">
+			<a class="navbar-brand brand-mark" href="#inicio"><span class="brand-symbol" aria-hidden="true">B.</span> BI en claro</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="mainNavigation">
+				<ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+					<li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="#decisiones">Decisiones</a></li>
+					<li class="nav-item"><a class="nav-link" href="#etl">Proceso ETL</a></li>
+					<li class="nav-item"><a class="nav-link" href="#casos">Casos reales</a></li>
+					<li class="nav-item"><a class="nav-link" href="#quiz">Cuestionario</a></li>
+					<li class="nav-item"><a class="nav-link nav-dashboard" href="dashboard.html">Dashboard Liga Pro 2026</a></li>
+					<li class="nav-item"><a class="nav-link nav-game" href="juego.html">Aventura BI</a></li>
+					<li class="nav-item"><a class="nav-link nav-syllabus" href="silabo.html">Sílabo UTC</a></li>
+					<li class="nav-item"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a tema oscuro" title="Cambiar a tema oscuro"><span class="theme-toggle-icon" aria-hidden="true">☾</span><span data-theme-label>Oscuro</span></button></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <div class="slide-stage" id="slideStage" aria-live="polite">
-      <section class="slide slide-cover is-active" id="slide-1" data-title="Portada" aria-hidden="false">
-        <div class="cover-grid">
-          <div class="cover-copy">
-            <p class="eyebrow"><span class="eyebrow-line"></span> CARRERA DE SISTEMAS DE INFORMACIÓN</p>
-            <p class="cover-kicker">SÍLABO DE ASIGNATURA <span>·</span> OCTAVO CICLO</p>
-            <h1>Sistemas de<br>Información para la<br><em>Inteligencia de Negocios</em></h1>
-            <p class="cover-subtitle">De los datos a decisiones con impacto.</p>
-            <div class="cover-meta">
-              <div><span>DOCENTE</span><strong>Luis Rene Quisaguano Collaguazo</strong></div>
-              <div><span>PERÍODO ACADÉMICO</span><strong>Octavo · PAO 2026–2027</strong></div>
-            </div>
-          </div>
-          <div class="cover-visual" aria-label="Ilustración de datos conectados con una decisión">
-            <div class="visual-orbit orbit-outer"></div><div class="visual-orbit orbit-inner"></div>
-            <div class="visual-node node-source"><span>01</span><strong>DATOS</strong><small>fuentes</small></div>
-            <div class="visual-node node-process"><span>02</span><strong>ANÁLISIS</strong><small>criterio BI</small></div>
-            <div class="visual-node node-decision"><span>03</span><strong>DECISIÓN</strong><small>acción</small></div>
-            <svg class="visual-connectors" viewBox="0 0 430 390" aria-hidden="true">
-              <path d="M104 115 209 190M319 115 220 190M213 204 124 286M223 204 317 286" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 6"/>
-              <circle cx="215" cy="195" r="9" fill="currentColor"/>
-              <circle cx="215" cy="195" r="19" fill="none" stroke="currentColor" opacity=".28"/>
-            </svg>
-            <div class="visual-caption"><span class="caption-bar"></span> INTELIGENCIA QUE GENERA VALOR</div>
-            <span class="visual-index">UTC / SI / 2026</span>
-          </div>
-        </div>
-        <div class="cover-bottom"><span>UNIVERSIDAD TÉCNICA DE COTOPAXI</span><span>CIENCIA · TÉCNICA · CULTURA</span></div>
-      </section>
+	<main>
+		<section class="hero-section" id="inicio">
+			<div class="container hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow"><span class="eyebrow-dot"></span> DATOS QUE MUEVEN NEGOCIOS</p>
+					<h1>Fundamentos<br>de <span>Inteligencia<br>de Negocios.</span></h1>
+					<p class="hero-lede">Los fundamentos de Business Intelligence, explicados para entender cómo una buena pregunta se convierte en una mejor decisión.</p>
+					<div class="hero-actions">
+						<a class="btn btn-ink" href="#quiz">Poner a prueba lo aprendido <span aria-hidden="true">→</span></a>
+						<a class="text-link" href="#decisiones">Comenzar a explorar <span aria-hidden="true">↓</span></a>
+					</div>
+					<div class="hero-meta"><span class="meta-rule"></span> SISTEMAS DE INFORMACIÓN PARA LA INTELIGENCIA DE NEGOCIOS <span>·</span> UNIDAD 1</div>
+				</div>
+				<div class="hero-visual" aria-label="Ilustración de un flujo de datos que se transforma en una decisión">
+					<div class="visual-topline"><span>DEL REGISTRO A LA ACCIÓN</span><span>01 / 03</span></div>
+					<div class="data-window">
+						<div class="window-head"><span class="window-dots"><i></i><i></i><i></i></span><span>ventas_q3.csv</span><span class="window-status">ACTIVO</span></div>
+						<div class="chart-bars" aria-hidden="true"><span style="--bar:34%"></span><span style="--bar:49%"></span><span style="--bar:42%"></span><span style="--bar:66%"></span><span style="--bar:57%"></span><span style="--bar:78%"></span><span style="--bar:70%"></span><span style="--bar:92%"></span><span style="--bar:82%"></span><span style="--bar:100%"></span></div>
+						<div class="chart-axis"><span>JUL</span><span>AGO</span><span>SEP</span></div>
+						<div class="chart-caption"><span>Ingresos del trimestre</span><strong>+24.8% <small>vs. anterior</small></strong></div>
+					</div>
+					<div class="insight-tag"><span class="insight-icon" aria-hidden="true">↗</span><span><small>OPORTUNIDAD DETECTADA</small><strong>El canal digital acelera</strong></span></div>
+					<span class="visual-index">FIG. 01 — INTELIGENCIA EN ACCIÓN</span>
+				</div>
+			</div>
+			<div class="container d-flex flex-wrap gap-3 pb-4">
+				<a class="text-link" href="dashboard.html">Explorar Dashboard Liga Pro 2026 <span aria-hidden="true">↗</span></a>
+				<a class="text-link" href="juego.html">Aprender jugando en Aventura BI <span aria-hidden="true">↗</span></a>
+			</div>
+			<div class="hero-bottom container"><span>UNA PREGUNTA MEJOR</span><span class="hero-bottom-line"></span><span>UN NEGOCIO MÁS CLARO</span></div>
+		</section>
 
-      <section class="slide" id="slide-2" data-title="Datos generales" aria-hidden="true">
-        <div class="slide-inner">
-          <div class="slide-heading"><p class="eyebrow">01 / FICHA ACADÉMICA</p><h2>Datos <em>generales</em></h2><p class="heading-intro">Una mirada rápida a la carga académica y la organización del curso.</p></div>
-          <div class="general-layout">
-            <article class="credit-card"><span class="card-overline">VALOR ACADÉMICO</span><strong>3.00</strong><span>CRÉDITOS</span><div class="credit-seal">UTC <i>·</i> SI</div></article>
-            <div class="hours-area"><div class="hours-total"><span>DEDICACIÓN TOTAL</span><strong>144 <small>horas</small></strong></div>
-              <div class="hours-bar" aria-label="Distribución de 144 horas: 48 de docencia, 48 de prácticas, 48 autónomas"><span></span><span></span><span></span></div>
-              <div class="hours-legend"><div><i class="legend-dot dot-blue"></i><span>Docencia</span><strong>48 h</strong></div><div><i class="legend-dot dot-sky"></i><span>Prácticas</span><strong>48 h</strong></div><div><i class="legend-dot dot-pale"></i><span>Autónomas</span><strong>48 h</strong></div></div>
-            </div>
-          </div>
-          <div class="info-ribbon"><span class="ribbon-icon">✉</span><div><small>DOCENTE</small><strong>Luis Rene Quisaguano Collaguazo</strong></div><div class="ribbon-divider"></div><div><small>CORREO INSTITUCIONAL</small><strong class="email-placeholder">No indicado en la información disponible</strong></div></div>
-        </div>
-      </section>
+		<section class="content-section decision-section" id="decisiones">
+			<div class="container">
+				<div class="section-heading section-heading-split">
+					<div><p class="eyebrow">01 — PENSAR CON EVIDENCIA</p><h2>Decidir bien empieza<br>por <em>mirar mejor.</em></h2></div>
+					<p class="section-intro">Los sistemas de información integran personas, procesos y tecnología para convertir datos dispersos en información útil, generar ventaja corporativa y apoyar decisiones. BI no decide por las personas: les ayuda a ver contexto, detectar patrones y evaluar opciones.</p>
+				</div>
+				<div class="decision-definition"><span class="definition-mark">“</span><p>Una decisión basada en datos combina <strong>evidencia confiable, contexto del negocio y criterio humano</strong> para elegir el siguiente paso.</p><span class="definition-caption">DATA-DRIVEN DECISION MAKING</span></div>
+				<div class="decision-levels">
+					<article class="level-card level-strategy"><div class="level-top"><span class="level-number">01</span><span class="level-horizon">LARGO PLAZO</span></div><h3>Estratégicas</h3><p>Definen el rumbo y asignan recursos para objetivos de largo alcance.</p><div class="level-example"><span>?</span> ¿En qué mercado creceremos?</div></article>
+					<article class="level-card level-tactics"><div class="level-top"><span class="level-number">02</span><span class="level-horizon">MEDIANO PLAZO</span></div><h3>Tácticas</h3><p>Traducen la estrategia en planes concretos para equipos y áreas.</p><div class="level-example"><span>?</span> ¿Qué campaña lanzamos este mes?</div></article>
+					<article class="level-card level-operations"><div class="level-top"><span class="level-number">03</span><span class="level-horizon">DÍA A DÍA</span></div><h3>Operativas</h3><p>Resuelven tareas frecuentes con información actual y específica.</p><div class="level-example"><span>?</span> ¿Qué pedido reponemos hoy?</div></article>
+				</div>
+				<div class="comparison-block">
+					<div class="comparison-title"><p class="eyebrow">DOS FORMAS DE ELEGIR</p><h3>La intuición propone.<br>Los datos ponen a prueba.</h3></div>
+					<div class="comparison-row intuition-row"><span class="comparison-symbol" aria-hidden="true">~</span><div><strong>Decisión intuitiva</strong><p>Rápida y útil cuando hay experiencia, poco tiempo o información limitada. Puede amplificar sesgos y recuerdos selectivos.</p></div><span class="comparison-label">EXPERIENCIA</span></div>
+					<div class="comparison-row data-row"><span class="comparison-symbol" aria-hidden="true">↗</span><div><strong>Decisión basada en datos</strong><p>Contrasta hipótesis con evidencia medible. Depende de la calidad, actualidad y lectura correcta de los datos.</p></div><span class="comparison-label">EVIDENCIA</span></div>
+				</div>
+				<div class="decision-flow" aria-label="Flujo de una decisión informada: pregunta, datos, análisis, acción y aprendizaje">
+					<span class="flow-node">PREGUNTA</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">DATOS</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node flow-node-active">ANÁLISIS</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">ACCIÓN</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">APRENDIZAJE</span>
+				</div>
+			</div>
+		</section>
 
-      <section class="slide" id="slide-3" data-title="Descripción" aria-hidden="true">
-        <div class="slide-inner description-layout">
-          <div class="slide-heading"><p class="eyebrow">02 / SENTIDO DE LA ASIGNATURA</p><h2>Convertir información<br>en <em>mejores decisiones.</em></h2></div>
-          <div class="description-copy"><p>En las organizaciones, los datos provienen de múltiples procesos y sistemas. La Inteligencia de Negocios permite <strong>reunirlos, almacenarlos, analizarlos y visualizarlos</strong> para comprender qué ocurre y actuar con fundamento.</p><p>La asignatura conecta los sistemas de información con herramientas analíticas para convertir datos en conocimiento útil y apoyar la toma de decisiones empresariales.</p>
-            <div class="process-rail"><span>REUNIR</span><i>→</i><span>ALMACENAR</span><i>→</i><span>ANALIZAR</span><i>→</i><span>VISUALIZAR</span></div>
-          </div>
-          <div class="description-visual" aria-hidden="true"><div class="mini-chart"><div class="chart-label">INFORMACIÓN → INSIGHT</div><div class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart-axis"><span>FUENTES</span><span>VALOR</span></div></div><div class="insight-card"><span>HALLAZGO</span><strong>Ver mejor.<br>Decidir mejor.</strong><i>↗</i></div></div>
-        </div>
-      </section>
+		<section class="content-section etl-section" id="etl">
+			<div class="container">
+				<div class="section-heading section-heading-split">
+					<div><p class="eyebrow">02 — PREPARAR LA INFORMACIÓN</p><h2>ETL: del origen<br>al <em>dato confiable.</em></h2></div>
+					<p class="section-intro">ETL es el proceso que reúne datos de distintas fuentes, los prepara con reglas claras y los deja listos en un destino analítico.</p>
+				</div>
+				<div class="etl-flow" aria-label="Proceso ETL: extracción, transformación y carga">
+					<article class="etl-step"><div class="etl-step-head"><span class="etl-step-index">01</span><span class="etl-step-icon" aria-hidden="true">↓</span></div><p class="etl-verb">EXTRACT</p><h3>Extraer</h3><p>Conectar con las fuentes y obtener los datos necesarios sin alterar su origen.</p><div class="etl-source-list"><span>CRM</span><span>ERP</span><span>APIs</span><span>CSV</span></div></article>
+					<span class="etl-connector" aria-hidden="true">→</span>
+					<article class="etl-step etl-step-featured"><div class="etl-step-head"><span class="etl-step-index">02</span><span class="etl-step-icon" aria-hidden="true">⌘</span></div><p class="etl-verb">TRANSFORM</p><h3>Transformar</h3><p>Limpiar, combinar, validar y dar un formato coherente a cada registro.</p><div class="etl-transform-tags"><span>limpiar</span><span>unificar</span><span>validar</span></div></article>
+					<span class="etl-connector" aria-hidden="true">→</span>
+					<article class="etl-step"><div class="etl-step-head"><span class="etl-step-index">03</span><span class="etl-step-icon" aria-hidden="true">↑</span></div><p class="etl-verb">LOAD</p><h3>Cargar</h3><p>Publicar el conjunto preparado en un almacén para analizarlo y visualizarlo.</p><div class="etl-source-list"><span>WAREHOUSE</span><span>BI</span></div></article>
+				</div>
+				<div class="etl-notes">
+					<div class="etl-note"><p class="eyebrow">HERRAMIENTAS DEL ECOSISTEMA</p><p><strong>Integración:</strong> Apache Airflow, dbt, Azure Data Factory. <strong>Visualización:</strong> Power BI, Tableau, Looker.</p></div>
+					<div class="etl-note etl-note-warning"><p class="eyebrow">DOS HÁBITOS QUE EVITAN PROBLEMAS</p><p><strong>Buena práctica:</strong> documentar reglas y monitorear calidad. <strong>Error común:</strong> cargar duplicados o corregir valores sin conservar su trazabilidad.</p></div>
+				</div>
+			</div>
+		</section>
 
-      <section class="slide" id="slide-4" data-title="Perfil de egreso" aria-hidden="true">
-        <div class="slide-inner">
-          <div class="slide-heading"><p class="eyebrow">03 / CONEXIÓN PROFESIONAL</p><h2>Un perfil que sabe<br><em>integrar información.</em></h2><p class="heading-intro">De datos aislados a procesos analíticos preparados para generar conocimiento.</p></div>
-          <div class="profile-flow">
-            <article class="profile-step"><span class="step-number">01</span><div class="profile-icon">↙</div><h3>Extraer</h3><p>Obtener datos relevantes desde diversas fuentes y sistemas.</p><span class="step-tag">ORÍGENES</span></article>
-            <span class="profile-arrow">→</span>
-            <article class="profile-step profile-step-highlight"><span class="step-number">02</span><div class="profile-icon">⤧</div><h3>Combinar</h3><p>Relacionar información para construir una visión integrada.</p><span class="step-tag">INTEGRACIÓN</span></article>
-            <span class="profile-arrow">→</span>
-            <article class="profile-step"><span class="step-number">03</span><div class="profile-icon">✓</div><h3>Depurar</h3><p>Validar y mejorar la calidad antes del análisis.</p><span class="step-tag">CONFIANZA</span></article>
-            <span class="profile-arrow">→</span>
-            <article class="profile-step profile-result"><span class="step-number">04</span><div class="profile-icon">↗</div><h3>Generar valor</h3><p>Habilitar procesos de información para apoyar decisiones.</p><span class="step-tag">IMPACTO</span></article>
-          </div>
-          <div class="profile-note"><span>APORTE AL PERFIL DE EGRESO</span><strong>Diseñar procesos de extracción, combinación y depuración de información para una gestión informada.</strong></div>
-        </div>
-      </section>
+		<section class="content-section cases-section" id="casos">
+			<div class="container">
+				<div class="section-heading section-heading-split">
+					<div><p class="eyebrow">03 — BI EN EL MUNDO REAL</p><h2>La información<br>también <em>juega.</em></h2></div>
+					<p class="section-intro">Un buen análisis no termina en un gráfico: cambia una decisión concreta. Estos ejemplos muestran dónde aparece ese valor.</p>
+				</div>
+				<div class="case-grid">
+					<article class="case-card"><div class="case-card-top"><span class="case-icon" aria-hidden="true">▤</span><span class="case-sector">01 / RETAIL</span></div><h3>Menos quiebres<br>de inventario.</h3><p>Una cadena compara ventas, temporadas y existencias para anticipar la demanda de cada sucursal.</p><div class="case-outcome"><span>IMPACTO</span><strong>Reposición más precisa</strong></div></article>
+					<article class="case-card"><div class="case-card-top"><span class="case-icon case-icon-coral" aria-hidden="true">＋</span><span class="case-sector">02 / SALUD</span></div><h3>Turnos que<br>llegan a tiempo.</h3><p>Un hospital analiza tiempos de espera y afluencia para asignar personal según la demanda horaria.</p><div class="case-outcome"><span>IMPACTO</span><strong>Atención mejor distribuida</strong></div></article>
+					<article class="case-card"><div class="case-card-top"><span class="case-icon case-icon-lime" aria-hidden="true">◷</span><span class="case-sector">03 / FINANZAS</span></div><h3>Riesgo bajo<br>la lupa.</h3><p>Una entidad cruza historial de pagos y variables financieras para revisar alertas de crédito.</p><div class="case-outcome"><span>IMPACTO</span><strong>Evaluación más consistente</strong></div></article>
+				</div>
+				<div class="case-footnote"><span class="footnote-line"></span> EL VALOR DEL BI SE MIDE EN MEJORES ACCIONES, NO EN MÁS GRÁFICOS.</div>
+			</div>
+		</section>
 
-      <section class="slide" id="slide-5" data-title="Objetivo general" aria-hidden="true">
-        <div class="objective-layout">
-          <div class="objective-main"><p class="eyebrow">04 / PROPÓSITO FORMATIVO</p><span class="objective-mark">OBJETIVO<br>GENERAL</span><h2>Analizar los conceptos de <em>Inteligencia de Negocios</em> para implementar herramientas en una organización.</h2><div class="objective-rule"><span></span> COMPRENDER <i>→</i> APLICAR <i>→</i> TRANSFORMAR</div></div>
-          <div class="objective-side"><div class="objective-ring"><span>BI</span><i>01</i><i>02</i><i>03</i><i>04</i></div><p>Una base conceptual y práctica para usar información con intención.</p></div>
-        </div>
-      </section>
+		<section class="quiz-section" id="quiz">
+			<div class="container quiz-layout">
+				<div class="quiz-intro"><p class="eyebrow">04 — TU TURNO</p><h2>¿Cuánto<br>se te quedó?</h2><p>Diez preguntas, una racha que cuidar y una insignia al final. Vamos paso a paso.</p><div class="quiz-score-key"><span>10</span> PUNTOS POR ACIERTO <span class="key-plus">+</span> BONUS POR RACHA</div><a class="quiz-dashboard-link" href="dashboard.html">¿Prefieres datos en juego real? <strong>Abre el dashboard ↗</strong></a><a class="quiz-dashboard-link" href="juego.html">¿Listo para una aventura? <strong>Conoce al robot dragón ↗</strong></a></div>
+				<div class="quiz-panel" id="quizPanel" aria-live="polite">
+					<div class="quiz-start" id="quizStart"><div class="quiz-card-label"><span class="quiz-live-dot"></span> RETO BI / 10 PREGUNTAS</div><div class="quiz-start-art" aria-hidden="true"><span class="art-ring ring-one"></span><span class="art-ring ring-two"></span><span class="art-core">BI</span><span class="art-orbit orbit-one">01</span><span class="art-orbit orbit-two">10</span></div><h3>Una buena decisión empieza con una buena pregunta.</h3><p>Prepárate para poner a prueba conceptos de decisiones, ETL e inteligencia de negocios.</p><button class="btn btn-quiz" id="startQuiz" type="button">Empezar el reto <span aria-hidden="true">→</span></button></div>
+					<div class="quiz-play" id="quizPlay" hidden>
+						<div class="quiz-play-top"><span class="quiz-card-label">RETO BI / <span id="questionNumber">01</span> DE 10</span><span class="quiz-live-score"><span id="scoreValue">0</span> PTS <i>·</i> RACHA <span id="streakValue">0</span></span></div>
+						<div class="progress quiz-progress" role="progressbar" aria-label="Progreso del cuestionario" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="progress-bar" id="progressBar"></div></div>
+						<p class="question-category" id="questionCategory">DECISIONES</p><h3 class="question-text" id="questionText"></h3><div class="answer-list" id="answerList"></div><div class="quiz-feedback" id="quizFeedback" role="status" hidden></div><button class="btn btn-quiz quiz-next" id="nextQuestion" type="button" hidden>Siguiente pregunta <span aria-hidden="true">→</span></button>
+					</div>
+					<div class="quiz-result" id="quizResult" hidden>
+						<div class="quiz-card-label">RETO COMPLETADO / RESULTADO FINAL</div><div class="result-medal" id="resultMedal" aria-hidden="true">★</div><p class="question-category">TU RESULTADO</p><h3 id="resultTitle">¡Buen trabajo!</h3><p class="result-message" id="resultMessage"></p><div class="result-score"><strong id="finalScore">0</strong><span>PUNTOS<br>DE 145</span></div><div class="result-stats"><div><strong id="correctAnswers">0 / 10</strong><span>ACERTADAS</span></div><div><strong id="bestStreak">0</strong><span>MEJOR RACHA</span></div></div><button class="btn btn-quiz" id="restartQuiz" type="button">Intentarlo de nuevo <span aria-hidden="true">↻</span></button></div>
+				</div>
+			</div>
+		</section>
+	</main>
 
-      <section class="slide" id="slide-6" data-title="Unidad 1" aria-hidden="true">
-        <div class="slide-inner unit-layout">
-          <div class="unit-index">UNIDAD<br><strong>01</strong></div>
-          <div class="unit-copy"><p class="eyebrow">FUNDAMENTOS Y GESTIÓN DE BI</p><h2>Entender el ecosistema<br>de <em>Inteligencia de Negocios.</em></h2><p class="unit-intro">Explorar los conceptos, componentes y herramientas que convierten datos en una ventaja organizacional.</p>
-            <div class="topic-grid"><div class="topic-item"><span>01</span><strong>Conceptos básicos de BI</strong></div><div class="topic-item"><span>02</span><strong>Componentes de BI</strong></div><div class="topic-item"><span>03</span><strong>Sistemas de información y ventaja corporativa</strong></div><div class="topic-item"><span>04</span><strong>Herramientas principales</strong></div></div>
-            <div class="method-card"><span class="method-symbol">◎</span><div><small>METODOLOGÍA DE APRENDIZAJE</small><strong>Aprendizaje Cooperativo</strong></div><span class="method-arrow">↗</span></div>
-          </div>
-          <div class="unit-decoration" aria-hidden="true"><span class="unit-ring"></span><span class="unit-core">BI</span><i>DATA</i><i>INSIGHT</i><i>VALUE</i></div>
-        </div>
-      </section>
-
-      <section class="slide" id="slide-7" data-title="Unidad 2" aria-hidden="true">
-        <div class="slide-inner unit-layout">
-          <div class="unit-index">UNIDAD<br><strong>02</strong></div>
-          <div class="unit-copy"><p class="eyebrow">SISTEMAS DE SOPORTE Y DATA WAREHOUSE</p><h2>Preparar datos para<br>una <em>visión compartida.</em></h2><p class="unit-intro">Comprender cómo se organiza la información y cómo se evalúan patrones para respaldar el conocimiento.</p>
-            <div class="topic-grid"><div class="topic-item"><span>01</span><strong>Variables de medición</strong></div><div class="topic-item"><span>02</span><strong>Data Warehouse</strong></div><div class="topic-item"><span>03</span><strong>Sistemas de Gestión del conocimiento</strong></div><div class="topic-item"><span>04</span><strong>Patrones de evaluación</strong></div></div>
-            <div class="method-card"><span class="method-symbol">⌕</span><div><small>METODOLOGÍA DE APRENDIZAJE</small><strong>Aprendizaje Basado en Problemas</strong></div><span class="method-arrow">↗</span></div>
-          </div>
-          <div class="warehouse-visual" aria-label="Datos organizados en un almacén analítico"><div class="warehouse-label">DATA<br>WAREHOUSE</div><div class="warehouse-layer layer-one">DATOS</div><div class="warehouse-layer layer-two">MODELO</div><div class="warehouse-layer layer-three">CONOCIMIENTO</div><span class="warehouse-line"></span></div>
-        </div>
-      </section>
-
-      <section class="slide" id="slide-8" data-title="Unidad 3" aria-hidden="true">
-        <div class="slide-inner unit-layout">
-          <div class="unit-index">UNIDAD<br><strong>03</strong></div>
-          <div class="unit-copy"><p class="eyebrow">SOPORTE PARA TOMA DE DECISIONES</p><h2>Explorar, medir<br>y <em>comunicar.</em></h2><p class="unit-intro">Diseñar recorridos analíticos que acerquen los datos a las preguntas estratégicas del negocio.</p>
-            <div class="topic-grid"><div class="topic-item"><span>01</span><strong>Vistas multidimensionales</strong></div><div class="topic-item"><span>02</span><strong>Procesos ETL</strong></div><div class="topic-item"><span>03</span><strong>Reporteadores</strong></div><div class="topic-item"><span>04</span><strong>Dashboards y KPIs</strong></div></div>
-            <div class="method-card"><span class="method-symbol">▧</span><div><small>METODOLOGÍA DE APRENDIZAJE</small><strong>Aprendizaje Basado en Proyectos</strong></div><span class="method-arrow">↗</span></div>
-          </div>
-          <div class="dashboard-visual" aria-label="Vista esquemática de un dashboard y sus KPIs"><div class="dash-window"><div class="dash-window-top"><i></i><i></i><i></i><span>BI / OVERVIEW</span></div><div class="dash-kpis"><b><small>KPI 01</small><strong>+18%</strong></b><b><small>KPI 02</small><strong>92.4</strong></b></div><div class="dash-graph"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><svg viewBox="0 0 220 85" preserveAspectRatio="none"><path d="M0 67 36 56 70 61 101 32 135 45 171 18 220 8" fill="none" stroke="currentColor" stroke-width="3"/></svg></div><div class="dash-foot"><span>DATOS</span><i>→</i><span>DECISIÓN</span></div></div><span class="dash-orbit"></span></div>
-        </div>
-      </section>
-
-      <section class="slide" id="slide-9" data-title="Habilidades blandas" aria-hidden="true">
-        <div class="slide-inner">
-          <div class="slide-heading"><p class="eyebrow">05 / APRENDER PARA COLABORAR</p><h2>Habilidades que amplían<br>el <em>impacto profesional.</em></h2><p class="heading-intro">El dominio técnico crece cuando se combina con criterio, colaboración y responsabilidad.</p></div>
-          <div class="skills-grid">
-            <article class="skill-card"><span class="skill-icon">⌘</span><span class="skill-number">01</span><h3>Competencia<br>digital</h3><p>Usar tecnologías para explorar y comunicar información.</p></article>
-            <article class="skill-card"><span class="skill-icon">✳</span><span class="skill-number">02</span><h3>Creatividad</h3><p>Proponer nuevas formas de representar y resolver retos.</p></article>
-            <article class="skill-card"><span class="skill-icon">◇</span><span class="skill-number">03</span><h3>Ética</h3><p>Tratar datos con responsabilidad y transparencia.</p></article>
-            <article class="skill-card"><span class="skill-icon">↗</span><span class="skill-number">04</span><h3>Liderazgo</h3><p>Coordinar equipos y orientar el trabajo hacia objetivos.</p></article>
-            <article class="skill-card"><span class="skill-icon">⌕</span><span class="skill-number">05</span><h3>Pensamiento<br>crítico</h3><p>Cuestionar supuestos e interpretar evidencia con rigor.</p></article>
-            <article class="skill-card"><span class="skill-icon">⊕</span><span class="skill-number">06</span><h3>Resolución<br>de problemas</h3><p>Convertir preguntas complejas en acciones viables.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide" id="slide-10" data-title="Proyecto PlasTrack" aria-hidden="true">
-        <div class="plastrack-layout">
-          <div class="plastrack-copy"><p class="eyebrow">06 / APRENDIZAJE CON PROPÓSITO</p><span class="project-label">PROYECTO INTEGRADOR</span><h2>Plas<span>Track</span></h2><p class="project-lede">Monitoreo inteligente de microplásticos mediante datos satelitales y dashboards.</p><p class="project-description">La asignatura aporta métodos para reunir y preparar información, analizar patrones y comunicar hallazgos visuales que faciliten el seguimiento y la toma de decisiones sobre este desafío ambiental.</p><div class="project-tags"><span>DATOS SATELITALES</span><span>ANÁLISIS</span><span>DASHBOARDS</span></div><div class="project-impact"><span>DEL DATO AMBIENTAL</span><i>→</i><strong>A LA ACCIÓN INFORMADA</strong></div></div>
-          <div class="plastrack-art" aria-label="Visualización de datos satelitales sobre el océano"><div class="satellite-orbit"></div><div class="earth"><div class="earth-grid"></div><div class="earth-land land-a"></div><div class="earth-land land-b"></div><span class="ocean-point point-a"></span><span class="ocean-point point-b"></span><span class="ocean-point point-c"></span><span class="ocean-point point-d"></span><div class="earth-label">OBSERVACIÓN<br>DESDE EL ESPACIO</div></div><div class="satellite"><svg viewBox="0 0 90 62" aria-hidden="true"><path d="m39 20 11 5-8 18-11-5z" fill="#fff" stroke="#1d5ba2" stroke-width="2"/><path d="m31 22-20-9-5 13 20 7zm22 13 20 9 6-13-20-8z" fill="#88c7f0" stroke="#1d5ba2" stroke-width="2"/><path d="m45 27 17-20m-6 23 24 6m-45-6L19 7" fill="none" stroke="#fff" stroke-width="2"/><circle cx="47" cy="29" r="3" fill="#f0cc6b"/></svg></div><div class="satellite-caption"><span class="caption-pulse"></span> SEÑAL SATELITAL / DATOS EN CAPAS</div></div>
-        </div>
-      </section>
-
-      <section class="slide" id="slide-11" data-title="Evaluación y bibliografía" aria-hidden="true">
-        <div class="slide-inner final-layout">
-          <div class="final-heading"><p class="eyebrow">07 / CIERRE Y RECURSOS</p><h2>Medir el avance.<br><em>Seguir aprendiendo.</em></h2><p class="heading-intro">Hitos de evaluación y recursos para llevar BI a la práctica.</p></div>
-          <div class="final-content">
-            <div class="evaluation-block"><div class="block-heading"><span>01</span><h3>Fechas de evaluación</h3></div><div class="evaluation-list"><div><span>EVAL 1</span><strong>22 <small>NOV</small></strong><i>2026</i></div><div><span>EVAL 2</span><strong>10 <small>ENE</small></strong><i>2027</i></div><div><span>EVAL 3</span><strong>14 <small>FEB</small></strong><i>2027</i></div></div></div>
-            <div class="resources-block"><div class="block-heading"><span>02</span><h3>Bibliografía y herramientas</h3></div><div class="resource-cards"><article><span class="resource-icon">▤</span><div><small>BIBLIOGRAFÍA</small><strong>Power BI<br>Toma de decisiones</strong></div></article><article><span class="resource-icon">⌘</span><div><small>HERRAMIENTAS RECOMENDADAS</small><strong>Power BI <i>·</i> Data Warehouse<br>ETL <i>·</i> Dashboards y KPIs</strong></div></article></div></div>
-          </div>
-          <div class="closing-bar"><span class="closing-brand">UTC <i>·</i> SISTEMAS DE INFORMACIÓN</span><strong>LOS DATOS SON EL COMIENZO. <em>EL IMPACTO, EL OBJETIVO.</em></strong><span>PAO 2026—2027</span></div>
-        </div>
-      </section>
-    </div>
-
-    <footer class="deck-controls" aria-label="Controles de presentación">
-      <button class="nav-button" id="previousSlide" type="button" aria-label="Diapositiva anterior" disabled><span aria-hidden="true">←</span><span class="button-label">Anterior</span></button>
-      <div class="deck-progress">
-        <div class="progress-copy"><span id="slideTitle">PORTADA</span><span id="slideCount">01 <i>/</i> 11</span></div>
-        <div class="progress-track" role="progressbar" id="deckProgress" aria-label="Progreso de la presentación" aria-valuemin="1" aria-valuemax="11" aria-valuenow="1"><span id="progressFill"></span></div>
-        <div class="slide-dots" id="slideDots" aria-label="Ir a una diapositiva"></div>
-      </div>
-      <button class="nav-button nav-next" id="nextSlide" type="button" aria-label="Diapositiva siguiente"><span class="button-label">Siguiente</span><span aria-hidden="true">→</span></button>
-      <span class="keyboard-hint"><kbd>←</kbd><kbd>→</kbd> PARA NAVEGAR</span>
-    </footer>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js" defer></script>
+	<footer class="site-footer"><div class="container footer-content"><a class="brand-mark" href="index.html"><span class="brand-symbol" aria-hidden="true">B.</span> BI en claro</a><span>Una introducción práctica a la inteligencia de negocios.</span><a href="dashboard.html">Ver Liga Pro 2026 ↗</a><a href="juego.html">Jugar Aventura BI ↗</a></div></footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/quiz.js" defer></script>
+	<script src="js/theme.js" defer></script>
 </body>
 </html>
