@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf0e7">
+  <meta name="description" content="Explora la tabla, los goles y el rendimiento de la Liga Pro 2026 en un dashboard interactivo.">
+  <title>Liga Pro 2026 | Centro de datos</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="container-fluid dashboard-shell">
+      <div class="dashboard-navline">
+        <a class="dashboard-brand" href="index.html"><span class="brand-badge" aria-hidden="true">LP</span><span>LIGA PRO <small>2026 / CENTRO DE DATOS</small></span></a>
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Fundamentos BI</a>
+      </div>
+      <div class="dashboard-title-row">
+        <div><p class="dash-eyebrow"><span class="live-dot"></span> TEMPORADA EN CURSO <span class="eyebrow-divider">/</span> DATOS DE EJEMPLO</p><h1>El campeonato,<br><em>en perspectiva.</em></h1></div>
+        <div class="filter-control"><label for="teamFilter">VISTA DE EQUIPO</label><select class="form-select" id="teamFilter" aria-label="Filtrar estadísticas por equipo"><option value="all">Ver todos</option></select></div>
+      </div>
+      <div class="dashboard-subline"><span>FECHA 10 <i>·</i> CORTE DE TEMPORADA</span><span>DATOS FICTICIOS PARA FINES EDUCATIVOS</span></div>
+    </div>
+  </header>
+
+  <main class="container-fluid dashboard-shell dashboard-main">
+    <section class="kpi-grid" aria-label="Indicadores principales">
+      <article class="kpi-card kpi-featured"><div class="kpi-label"><span id="goalsKpiLabel">GOLES EN EL TORNEO</span><span aria-hidden="true">↗</span></div><div class="kpi-value" id="totalGoals">103</div><div class="kpi-foot"><span class="kpi-mark"></span><span id="goalsKpiFoot">TOTAL ACUMULADO</span></div></article>
+      <article class="kpi-card"><div class="kpi-label"><span id="leaderKpiLabel">EQUIPO LÍDER</span><span aria-hidden="true">01</span></div><div class="kpi-value kpi-team" id="leaderTeam">Barcelona SC</div><div class="kpi-foot"><span class="form-dots"><i></i><i></i><i></i></span> <span id="leaderPoints">23 PTS</span></div></article>
+      <article class="kpi-card"><div class="kpi-label">PARTIDOS JUGADOS <span aria-hidden="true">▦</span></div><div class="kpi-value" id="matchesPlayed">40</div><div class="kpi-foot" id="matchesKpiFoot">10 FECHAS <span class="kpi-separator">/</span> 8 EQUIPOS</div></article>
+      <article class="kpi-card"><div class="kpi-label">GOLES POR PARTIDO <span aria-hidden="true">Ø</span></div><div class="kpi-value" id="goalsAverage">2.58</div><div class="kpi-foot">PROMEDIO DEL TORNEO</div></article>
+    </section>
+
+    <section class="chart-grid" aria-label="Visualizaciones del torneo">
+      <article class="chart-panel chart-panel-wide"><div class="panel-heading"><div><p class="panel-index">01 / ATAQUE</p><h2>Goles a favor</h2></div><span class="panel-unit">GF <i>·</i> TOTAL</span></div><div class="chart-wrap chart-wrap-tall"><canvas id="goalsChart" role="img" aria-label="Gráfica de barras de goles por equipo"></canvas></div></article>
+      <article class="chart-panel"><div class="panel-heading"><div><p class="panel-index">02 / RESULTADOS</p><h2>Balance de partidos</h2></div><span class="panel-unit">PG / PE / PP</span></div><div class="chart-wrap chart-wrap-doughnut"><canvas id="resultsChart" role="img" aria-label="Gráfica de victorias, empates y derrotas"></canvas></div><div class="chart-legend" id="resultsLegend"></div></article>
+      <article class="chart-panel"><div class="panel-heading"><div><p class="panel-index">03 / CAMPAÑA</p><h2>Ritmo de puntos</h2></div><span class="panel-unit" id="pointsTeamLabel">BARCELONA SC</span></div><div class="chart-wrap chart-wrap-line"><canvas id="pointsChart" role="img" aria-label="Gráfica de evolución de puntos por fecha"></canvas></div></article>
+      <article class="chart-panel chart-panel-wide"><div class="panel-heading"><div><p class="panel-index">04 / DISCIPLINA</p><h2>Tarjetas amarillas</h2></div><span class="panel-unit">TA <i>·</i> TOTAL</span></div><div class="chart-wrap chart-wrap-horizontal"><canvas id="cardsChart" role="img" aria-label="Gráfica horizontal de tarjetas amarillas por equipo"></canvas></div></article>
+      <article class="chart-panel chart-panel-radar"><div class="panel-heading"><div><p class="panel-index">05 / COMPARATIVA</p><h2>Perfil de juego</h2></div><span class="panel-unit">COMPARATIVA</span></div><div class="chart-wrap chart-wrap-radar"><canvas id="radarChart" role="img" aria-label="Gráfica radar comparativa"></canvas></div><p class="radar-caption" id="radarCaption">Barcelona SC frente a Independiente del Valle</p></article>
+    </section>
+
+    <section class="standings-section">
+      <div class="standings-heading"><div><p class="panel-index">06 / TABLA GENERAL</p><h2>Posiciones</h2></div><div class="playoff-key"><span class="playoff-swatch"></span> ZONA DE PLAYOFFS <span class="table-date">AL CIERRE DE FECHA 10</span></div></div>
+      <div class="table-responsive standings-table-wrap"><table class="table align-middle standings-table mb-0"><thead><tr><th scope="col">POS</th><th scope="col">EQUIPO</th><th scope="col">PJ</th><th scope="col">PG</th><th scope="col">PE</th><th scope="col">PP</th><th scope="col">GF</th><th scope="col">GC</th><th scope="col">DG</th><th scope="col">PTS</th></tr></thead><tbody id="standingsBody"></tbody></table></div>
+      <p class="table-note"><span class="note-mark">i</span> Los primeros cuatro equipos clasifican a playoffs. Los datos de esta temporada son ficticios y se utilizan con fines educativos.</p>
+    </section>
+
+    <footer class="dashboard-footer"><a href="index.html">← Volver a Fundamentos de BI</a><span>LIGA PRO 2026 <i>·</i> PANEL DEMOSTRATIVO</span><span>ACTUALIZADO: FECHA 10</span></footer>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>
