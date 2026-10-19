@@ -137,6 +137,25 @@
 
   renderTable();
   filter.addEventListener("change", updateDashboard);
+  window.addEventListener("themechange", ({ detail }) => {
+    const axisColor = detail.theme === "dark" ? "#aab7ad" : colors.muted;
+    const gridColor = detail.theme === "dark" ? "#39453d" : colors.grid;
+    Chart.defaults.color = axisColor;
+    Chart.defaults.borderColor = gridColor;
+
+    [goalsChart, pointsChart, cardsChart].forEach((chart) => {
+      Object.values(chart.options.scales).forEach((scale) => {
+        if (scale.ticks) scale.ticks.color = axisColor;
+        if (scale.grid) scale.grid.color = gridColor;
+      });
+      chart.update();
+    });
+
+    radarChart.options.scales.r.grid.color = gridColor;
+    radarChart.options.scales.r.angleLines.color = gridColor;
+    radarChart.options.scales.r.pointLabels.color = axisColor;
+    radarChart.update();
+  });
   renderLegend([28, 24, 28]);
   updateDashboard();
 })();

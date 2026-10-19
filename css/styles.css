@@ -203,6 +203,33 @@ a { color: inherit; }
 .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
 .footer-content > span, .footer-content > a:last-child { color: #748078; font-size: 9px; text-decoration: none; }
 .footer-content > a:last-child:hover { color: var(--blue); }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 2px; background: transparent; color: var(--ink); font-family: var(--font-body); font-size: 10px; font-weight: 700; transition: background .2s ease, border-color .2s ease; }
+.theme-toggle:hover { border-color: var(--blue); background: rgba(54, 89, 227, .08); }
+.theme-toggle-icon { color: var(--blue); font-size: 16px; line-height: 1; }
+html[data-theme="dark"] { color-scheme: dark; --paper: #171d19; --paper-bright: #222a24; --ink: #edf2ec; --muted: #a8b4ab; --line: #3b473f; --blue: #9bacff; --blue-dark: #8194ff; }
+html[data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+html[data-theme="dark"] .site-nav { background: rgba(23, 29, 25, .95); border-color: #39443c; }
+html[data-theme="dark"] .navbar-nav .nav-link { color: #c0cbc2; }
+html[data-theme="dark"] .hero-section { background-color: #202822; background-image: radial-gradient(rgba(237, 242, 236, .07) .7px, transparent .7px); }
+html[data-theme="dark"] .hero-lede, html[data-theme="dark"] .section-intro, html[data-theme="dark"] .decision-definition p, html[data-theme="dark"] .level-card p, html[data-theme="dark"] .comparison-row p, html[data-theme="dark"] .etl-step > p:not(.etl-verb), html[data-theme="dark"] .etl-note p:last-child, html[data-theme="dark"] .case-card > p { color: #b5c0b7; }
+html[data-theme="dark"] .hero-visual { border-color: #465249; background: rgba(34, 42, 36, .88); box-shadow: 12px 12px 0 rgba(0, 0, 0, .12); }
+html[data-theme="dark"] .data-window, html[data-theme="dark"] .level-card, html[data-theme="dark"] .etl-step, html[data-theme="dark"] .case-card { border-color: var(--line); background: var(--paper-bright); }
+html[data-theme="dark"] .window-head, html[data-theme="dark"] .visual-topline, html[data-theme="dark"] .chart-axis, html[data-theme="dark"] .chart-caption, html[data-theme="dark"] .hero-meta, html[data-theme="dark"] .hero-bottom, html[data-theme="dark"] .visual-index, html[data-theme="dark"] .level-horizon, html[data-theme="dark"] .comparison-label, html[data-theme="dark"] .definition-caption, html[data-theme="dark"] .etl-source-list span, html[data-theme="dark"] .case-sector, html[data-theme="dark"] .case-footnote { color: #a4b0a7; }
+html[data-theme="dark"] .chart-bars { border-color: #465249; background: repeating-linear-gradient(to bottom, transparent 0, transparent 32px, #303a33 33px, transparent 34px); }
+html[data-theme="dark"] .chart-caption small { color: #a4b0a7; }
+html[data-theme="dark"] .level-card:hover { background: #2b342d; }
+html[data-theme="dark"] .level-example { color: #c3cec5; }
+html[data-theme="dark"] .etl-section, html[data-theme="dark"] .site-footer { background: #1c241e; }
+html[data-theme="dark"] .cases-section { background: #171d19; }
+html[data-theme="dark"] .etl-section { background-image: linear-gradient(120deg, rgba(255,255,255,.025), transparent 45%); }
+html[data-theme="dark"] .etl-notes, html[data-theme="dark"] .etl-note + .etl-note { border-color: #3b473f; }
+html[data-theme="dark"] .case-outcome { border-color: #3b473f; }
+html[data-theme="dark"] .decision-definition strong, html[data-theme="dark"] .etl-note p strong, html[data-theme="dark"] .case-outcome strong { color: var(--ink); }
+html[data-theme="dark"] .btn-ink { background: #e7eee8; color: #18221f; }
+html[data-theme="dark"] .btn-ink:hover { background: var(--blue); color: #18221f; }
+html[data-theme="dark"] .btn-quiz, html[data-theme="dark"] .insight-icon, html[data-theme="dark"] .art-core { color: #18221f; }
+html[data-theme="dark"] .theme-toggle:hover { background: rgba(155, 172, 255, .12); }
+html[data-theme="dark"] .navbar-toggler-icon { filter: invert(1); }
 @keyframes rise-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes bar-rise { from { transform: scaleY(.1); } to { transform: scaleY(1); } }
 @keyframes rotate { to { transform: rotate(360deg); } }
